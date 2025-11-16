@@ -5,16 +5,17 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private HealthbarUIComponent healthbarUI;
     private Rigidbody2D rigidBody2D;
     private InputAction moveInput;
     private Camera mainCamera;
     private Vector3 mouseScreenPos;
-    private Vector3 mouseWorld;
     private Vector3 mouseWorldPos;
     private SpriteRenderer spriteRenderer;
     private PlayerGun gun;
 
-    public float playerLife = 10f;
+    public float maxLife = 10f;
+    public float life = 10f;
     private bool facingRight = false;
 
     void Start()
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         mainCamera = Camera.main;
         moveInput = InputSystem.actions.FindAction("Move");
         moveInput.Enable();
+        healthbarUI.SetMaxHealth(maxLife);
     }
 
 
@@ -87,8 +89,8 @@ private void HandleMovement()
 
     public void TakeDamage(float damage)
     {
-        playerLife -= damage;
-        if(playerLife <= 0)
+        SetHealth(damage);
+        if(life <= 0)
         {
             
             Die();
@@ -98,6 +100,13 @@ private void HandleMovement()
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void SetHealth(float healthChange)
+    {
+        life -= healthChange;
+        life = Mathf.Clamp(life, 0, maxLife);
+        healthbarUI.SetHealth(life);
     }
 }
 
