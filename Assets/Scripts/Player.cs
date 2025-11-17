@@ -92,7 +92,6 @@ private void HandleMovement()
         SetHealth(damage);
         if(life <= 0)
         {
-            
             Die();
         }
     }
