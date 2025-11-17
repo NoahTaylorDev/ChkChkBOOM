@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerGun gun;
 
-    public float maxLife = 10f;
-    public float life = 10f;
+    public float maxLife = 1f;
+    public float life = 1f;
     private bool facingRight = false;
 
     void Start()
@@ -99,7 +99,11 @@ private void HandleMovement()
 
     private void Die()
     {
-        Destroy(gameObject);
+        GetComponent<Rigidbody2D>().simulated = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        this.enabled = false;
+        
+        FindFirstObjectByType<PlayerUIController>().OnPlayerDeath();
     }
 
     public void SetHealth(float healthChange)
