@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     public float life = 10f;
     private bool facingRight = false;
 
+    private SaveData saveData;
+    public int Boombucks => saveData.boombucks;
+
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -27,6 +30,8 @@ public class Player : MonoBehaviour
         moveInput = InputSystem.actions.FindAction("Move");
         moveInput.Enable();
         healthbarUI.SetMaxHealth(maxLife);
+
+        LoadGame();
     }
 
 
@@ -101,6 +106,8 @@ private void HandleMovement()
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
+
+        SaveGame();
         
         FindFirstObjectByType<PlayerUIController>().OnPlayerDeath();
     }
@@ -111,6 +118,45 @@ private void HandleMovement()
         life = Mathf.Clamp(life, 0, maxLife);
         healthbarUI.SetHealth(life);
     }
+
+    public void LoadGame()
+    {
+        saveData = SaveSystem.LoadGame();
+        Debug.Log($"Loaded {saveData.boombucks} Boombucks");
+    }
+
+    public void SaveGame()
+    {
+        SaveSystem.SaveGame(saveData);
+    }
+
+    public void AddBoombucks(int amount)
+    {
+        saveData.boombucks += amount;
+        Debug.Log($"Added {amount} Boombucks. Total: {saveData.boombucks}");
+        SaveGame();
+    }
+
+    public bool SpendBoombucks(int amount)
+    {
+        if (saveData.boombucks >= amount)
+        {
+            saveData.boombucks -= amount;
+            Debug.Log(
+                $"Spent {amount} Boombucks. Remaining: {saveData.boombucks}"
+            );
+            SaveGame();
+            return true;
+        }
+        Debug.Log("Not enough Boombucks!");
+        return false;
+    }
+
+    void OnApplicationQuit()
+    {
+        SaveGame();
+    }
 }
+
 
 

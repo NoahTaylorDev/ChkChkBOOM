@@ -16,11 +16,13 @@ public class Enemy : MonoBehaviour
     private float fleeEndTime;
     private bool isFleeing = false;
 
+    private Player player;
+
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         nextAttackTime = Time.time;
-        Player player = FindFirstObjectByType<Player>();
+        player = FindFirstObjectByType<Player>();
         if (player != null)
         {
             playerTransform = player.transform;
@@ -88,6 +90,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        player.AddBoombucks(10);
         Destroy(gameObject);
     }
 }
