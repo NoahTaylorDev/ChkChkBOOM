@@ -29,7 +29,7 @@ public class HealthCollectable : MonoBehaviour
             Player player = other.GetComponent<Player>();
             if (player != null)
             {
-                player.Heal(healAmount);
+                player.SetHealth(healAmount);
                 hasBeenCollected = true;
                 Destroy(gameObject);
             }

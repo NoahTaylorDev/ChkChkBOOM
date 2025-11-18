@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.isPressed)
         {
             gun.TryShoot();
         }
@@ -89,7 +89,7 @@ private void HandleMovement()
 
     public void TakeDamage(float damage)
     {
-        SetHealth(damage);
+        SetHealth(-damage);
         if(life <= 0)
         {
             Die();
@@ -107,14 +107,7 @@ private void HandleMovement()
 
     public void SetHealth(float healthChange)
     {
-        life -= healthChange;
-        life = Mathf.Clamp(life, 0, maxLife);
-        healthbarUI.SetHealth(life);
-    }
-
-    public void Heal(int amount)
-    {
-        life += amount;
+        life += healthChange;
         life = Mathf.Clamp(life, 0, maxLife);
         healthbarUI.SetHealth(life);
     }

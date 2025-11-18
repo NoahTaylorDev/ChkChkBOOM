@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c7e0a9eca67a8b4daac6353d7d8cc5f, type: 3}
-  m_Name: BFG_Data
+  m_Name: PlasmaShotgun_Data
   m_EditorClassIdentifier: Assembly-CSharp::GunData
-  fireRate: 5
-  bulletSpeed: 20
-  damage: 2
-  gunSprite: {fileID: -3394858068493699041, guid: 1626cd4e751a0cc43a452c1f5a54682e, type: 3}
+  fireRate: 3
+  bulletSpeed: 10
+  damage: 4
+  bulletsPerShot: 12
+  shotDistance: 10
+  bulletSpread: 40
+  gunSprite: {fileID: -4265445015118211463, guid: b1dac556fcae45542a2ecad644745b11, type: 3}
   gunDistance: 1

@@ -8,25 +8,25 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     private bool hasHit = false;
 
-    private float lifetime = 2f;
-
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         Debug.Log($"Bullet created: {gameObject.GetInstanceID()}");
-        Destroy(gameObject, lifetime);
     }
 
     public void FireBullet(
         Vector3 shootDirection,
         float bulletSpeed,
-        int bulletDamage
+        int bulletDamage,
+        float lifetime
     )
     {
         direction = shootDirection;
         speed = bulletSpeed;
         damage = bulletDamage;
         rb.linearVelocity = direction * speed;
+        
+        Destroy(gameObject, lifetime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
