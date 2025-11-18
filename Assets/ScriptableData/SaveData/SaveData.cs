@@ -7,6 +7,6 @@ public class SaveData
     
     public SaveData()
     {
-        boombucks = 0;
+        boombucks = 10;
     }
 }
