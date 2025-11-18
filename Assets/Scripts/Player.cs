@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerGun gun;
 
-    public float maxLife = 1f;
-    public float life = 1f;
+    public float maxLife = 10f;
+    public float life = 10f;
     private bool facingRight = false;
 
     void Start()
@@ -108,6 +108,13 @@ private void HandleMovement()
     public void SetHealth(float healthChange)
     {
         life -= healthChange;
+        life = Mathf.Clamp(life, 0, maxLife);
+        healthbarUI.SetHealth(life);
+    }
+
+    public void Heal(int amount)
+    {
+        life += amount;
         life = Mathf.Clamp(life, 0, maxLife);
         healthbarUI.SetHealth(life);
     }
