@@ -5685,6 +5685,7 @@ MonoBehaviour:
   exitButton: {fileID: 1282331111}
   player: {fileID: 1413808131}
   boomBucksCounter: {fileID: 710471430}
+  globalData: {fileID: 11400000, guid: 0bf213f70f0d60c43a8e660764a71c04, type: 2}
 --- !u!1 &1509370646
 GameObject:
   m_ObjectHideFlags: 0

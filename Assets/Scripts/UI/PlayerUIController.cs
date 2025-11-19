@@ -13,37 +13,22 @@ public class PlayerUIController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI boomBucksCounter;
 
+    [SerializeField] public GlobalData globalData;
+
     void Start()
     {
         uiPanel.SetActive(false);
         restartButton.onClick.AddListener(RestartScene);
         returnButton.onClick.AddListener(ReturnToMainMenu);
         exitButton.onClick.AddListener(ExitGame);
-        
-        // Only search if not already assigned in Inspector
-        if (player == null)
-        {
-            player = FindFirstObjectByType<Player>();
-        }
-
-        // Warn if still null
-        if (player == null)
-        {
-            Debug.LogError("Player not found in scene!");
-        }
-
-        if (boomBucksCounter == null)
-        {
-            Debug.LogError("BoomBucks counter not assigned!");
-        }
+        SaveSystem.LoadGame();
     }
 
     void Update()
     {
-        // Add null check before accessing
         if (player != null && boomBucksCounter != null)
         {
-            boomBucksCounter.text = $": {player.Boombucks}";
+            boomBucksCounter.text = $": {globalData.boombucks}";
         }
     }
 
@@ -51,6 +36,7 @@ public class PlayerUIController : MonoBehaviour
     {
         uiPanel.SetActive(true);
         Time.timeScale = 0f;
+        SaveSystem.SaveGame();
     }
 
     private void RestartScene()

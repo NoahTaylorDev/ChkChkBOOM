@@ -3,6 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class StartMenuController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject progressionMenu;
+
+    void Start()
+    {
+        progressionMenu.SetActive(false);
+    }
+
     public void OnStartClick()
     {
         SceneManager.LoadScene("Main");
@@ -14,5 +22,11 @@ public class StartMenuController : MonoBehaviour
             UnityEditor.EditorApplication.isPlaying = false;
         #endif
             Application.Quit();
+    }
+
+    public void OnShopClick()
+    {
+        progressionMenu.SetActive(true);
+        
     }
 }
