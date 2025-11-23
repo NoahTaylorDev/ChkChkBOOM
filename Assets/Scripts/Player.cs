@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gun = GetComponentInChildren<PlayerGun>();
+        gun.SwapGun(1);
         mainCamera = Camera.main;
         moveInput = InputSystem.actions.FindAction("Move");
         moveInput.Enable();

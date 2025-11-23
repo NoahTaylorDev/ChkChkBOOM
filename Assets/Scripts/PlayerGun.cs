@@ -1,23 +1,24 @@
+using Mono.Cecil;
 using UnityEngine;
 
 public class PlayerGun : MonoBehaviour
 {
-    [SerializeField] private GunData gunData;
+    
+    [SerializeField] public int gunIndex = 0;
+    public GunData gunData => availableGuns[gunIndex];
+    [SerializeField] GunData[] availableGuns;
     [SerializeField] private Bullet bulletPrefab;
     public Transform firePoint;
 
     private SpriteRenderer spriteRenderer;
     private float lastFired = 0;
-    
+
     public float gunDistance => gunData.gunDistance;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null && gunData.gunSprite)
-        {
-            spriteRenderer.sprite = gunData.gunSprite;
-        }
+        UpdateGunVisuals();
     }
 
     public void AimAt(Vector2 targetPosition)
@@ -63,5 +64,22 @@ public class PlayerGun : MonoBehaviour
             gunData.damage,
             gunData.GetBulletLifetime()
         );
+    }
+
+    public void SwapGun(int index)
+    {
+        if (index >= 0 && index < availableGuns.Length)
+        {
+            gunIndex = index;
+            UpdateGunVisuals();
+        }
+    }
+
+    private void UpdateGunVisuals()
+    {
+        if (spriteRenderer != null && gunData.gunSprite)
+        {
+            spriteRenderer.sprite = gunData.gunSprite;
+        }
     }
 }
