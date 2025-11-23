@@ -58,6 +58,15 @@ public class Player : MonoBehaviour
         {
             gun.TryShoot();
         }
+
+        for (int i = 0; i < 9; i++)
+        {
+            if (Keyboard.current[(Key)(Key.Digit1 + i)].wasPressedThisFrame)
+            {
+                gun.SwapGun(i);
+                break;
+            }
+        }
     }
 
 private void HandleMovement()
