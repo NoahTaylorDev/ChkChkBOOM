@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log($"Bullet created: {gameObject.GetInstanceID()}");
     }
 
     public void FireBullet(
@@ -39,7 +38,6 @@ public class Bullet : MonoBehaviour
             if (enemy != null)
             {
                 hasHit = true;
-                Debug.Log($"Bullet {gameObject.GetInstanceID()} hit enemy");
                 enemy.TakeDamage(damage);
                 Destroy(gameObject);
             }
@@ -50,7 +48,6 @@ public class Bullet : MonoBehaviour
             if (nest != null)
             {
                 hasHit = true;
-                Debug.Log($"Bullet {gameObject.GetInstanceID()} hit nest");
                 nest.TakeDamage(damage);
                 Destroy(gameObject);
             }
@@ -59,6 +56,6 @@ public class Bullet : MonoBehaviour
 
     void OnDestroy()
     {
-        Debug.Log($"Bullet {gameObject.GetInstanceID()} destroyed");
+        
     }
 }

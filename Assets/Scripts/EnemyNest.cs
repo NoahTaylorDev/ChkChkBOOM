@@ -1,7 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyNest : MonoBehaviour
 {
+    public UnityEvent OnDestroyed = new UnityEvent();
+
     public float nestHealth = 20f;
     public float spawnRate = 10f;
 
@@ -41,6 +45,7 @@ public class EnemyNest : MonoBehaviour
 
     public void Die()
     {
+        OnDestroyed?.Invoke();
         Destroy(gameObject);
     }
 }
