@@ -1,10 +1,18 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class HealthCollectable : MonoBehaviour
+public enum CollectableType
 {
+    Health,
+    Shotgun
+}
+
+public class Collectable : MonoBehaviour
+{
+    public UnityEvent<CollectableType> OnCollected;
+    public CollectableType variantType;
     [SerializeField] private float bobHeight = 0.5f;
     [SerializeField] private float bobSpeed = 2f;
-    [SerializeField] private int healAmount = 2;
     
     private Vector3 startPosition;
     private bool hasBeenCollected = false;
@@ -26,13 +34,16 @@ public class HealthCollectable : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
-            Player player = other.GetComponent<Player>();
-            if (player != null)
-            {
-                player.SetHealth(healAmount);
-                hasBeenCollected = true;
-                Destroy(gameObject);
-            }
+            // Player player = other.GetComponent<Player>();
+            // if (player != null)
+            // {
+            //     player.SetHealth(healAmount);
+            //     hasBeenCollected = true;
+            //     Destroy(gameObject);
+            // }
+            hasBeenCollected = true;
+            OnCollected?.Invoke(variantType);
+            Destroy(gameObject);
         }
     }
 }

@@ -4,8 +4,17 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private HealthbarUIComponent healthbarUI;
+    [SerializeField] 
+    private float speed = 5f;
+
+    [SerializeField] 
+    private HealthbarUIComponent healthbarUI;
+
+    [SerializeField]
+    private Collectable collectable;
+    
+    [SerializeField]
+    private float HealthGain = 2f;
     private Rigidbody2D rigidBody2D;
     private InputAction moveInput;
     private Camera mainCamera;
@@ -13,6 +22,8 @@ public class Player : MonoBehaviour
     private Vector3 mouseWorldPos;
     private SpriteRenderer spriteRenderer;
     private PlayerGun gun;
+
+    
 
     public float maxLife = 10f;
     public float life = 10f;
@@ -31,6 +42,7 @@ public class Player : MonoBehaviour
         moveInput.Enable();
         healthbarUI.SetMaxHealth(maxLife);
         playerUI = FindFirstObjectByType<PlayerUIController>();
+        collectable.OnCollected.AddListener((CollectableType) => OnPickupCollectable(CollectableType));
     }
 
 
@@ -123,6 +135,19 @@ private void HandleMovement()
         life += healthChange;
         life = Mathf.Clamp(life, 0, maxLife);
         healthbarUI.SetHealth(life);
+    }
+
+    public void OnPickupCollectable(CollectableType type)
+    {
+        switch (type)
+        {
+            case CollectableType.Health:
+                SetHealth(HealthGain);
+                break;
+            case CollectableType.Shotgun:
+                Debug.Log("Shotgun Collected: " + type);
+                break;
+        }
     }
 
     void OnApplicationQuit()
