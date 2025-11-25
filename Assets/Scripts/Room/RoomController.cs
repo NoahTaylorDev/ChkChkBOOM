@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class RoomController : MonoBehaviour
 {
+    public UnityEvent OnRoomCleared;
     [SerializeField] private Enemy[] enemies;
     private List<EnemyNest> nests = new List<EnemyNest>();
     [SerializeField] private EnemyNest nest;
@@ -23,12 +24,16 @@ public class RoomController : MonoBehaviour
         );
         nests.Add(spawnedNest);
         
-        // spawnedNest.OnDestroyed.AddListener(() => OnSpawnerDestroyed());
+        spawnedNest.OnDestroyed.AddListener(() => OnSpawnerDestroyed());
     }
 
     public void OnSpawnerDestroyed()
     {
-        Debug.Log("Nest Count: " + nests.Count);
+        if(nests.Count == 0)
+        {
+            Debug.Log("Room Cleared");
+            OnRoomCleared?.Invoke();
+        }
     }
 }
 

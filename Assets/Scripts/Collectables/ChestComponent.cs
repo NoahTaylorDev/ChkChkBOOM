@@ -7,8 +7,17 @@ public class ChestComponent : MonoBehaviour
     private Sprite disabledChestSprite;
     [SerializeField]
     private Sprite activeChestSprite;
+    [SerializeField]
+    private RoomController roomController;
 
+    private SpriteRenderer spriteRenderer;
 
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        roomController.OnRoomCleared.AddListener(() => ActivateChest());
+
+    }
     void Update()
     {
         
@@ -19,5 +28,11 @@ public class ChestComponent : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void ActivateChest()
+    {
+        Debug.Log("Chest Active");
+        spriteRenderer.sprite = activeChestSprite;
     }
 }

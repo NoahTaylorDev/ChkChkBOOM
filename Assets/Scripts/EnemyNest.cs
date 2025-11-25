@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class EnemyNest : MonoBehaviour
 {
-    public UnityEvent OnDestroyed = new UnityEvent();
+    public UnityEvent OnDestroyed;
 
     public float nestHealth = 20f;
     public float spawnRate = 10f;

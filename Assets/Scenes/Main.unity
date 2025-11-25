@@ -4620,6 +4620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   disabledChestSprite: {fileID: -5281422124547630143, guid: f2cb2c3c7898d64478256bf3e2048ec2, type: 3}
   activeChestSprite: {fileID: 4931053149192371854, guid: e390e583ee5435947ad9ace6638dc6a5, type: 3}
+  roomController: {fileID: 1932635286259555871, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
 --- !u!61 &510666699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29465,6 +29466,34 @@ PrefabInstance:
     - target: {fileID: 591408135327226794, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932635286259555871, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
+      propertyPath: OnRoomCleared.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932635286259555871, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
+      propertyPath: OnRoomCleared.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932635286259555871, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
+      propertyPath: OnRoomCleared.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 510666698}
+    - target: {fileID: 1932635286259555871, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
+      propertyPath: OnRoomCleared.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932635286259555871, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
+      propertyPath: OnRoomCleared.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateChest
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932635286259555871, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
+      propertyPath: OnRoomCleared.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChestComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932635286259555871, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
+      propertyPath: OnRoomCleared.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7419223682978366227, guid: a6747354a6231e54d869a4265f81f6cf, type: 3}
       propertyPath: m_Name
