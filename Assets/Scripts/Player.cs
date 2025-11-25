@@ -1,9 +1,13 @@
 using System;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+
 
 public class Player : MonoBehaviour
 {
+    public UnityEvent OnShotgunCollected;
     [SerializeField] 
     private float speed = 5f;
 
@@ -12,9 +16,13 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private Collectable collectable;
-    
+
     [SerializeField]
     private float HealthGain = 2f;
+
+    [SerializeField] 
+    private GameObject GunTypeSprite;
+
     private Rigidbody2D rigidBody2D;
     private InputAction moveInput;
     private Camera mainCamera;
@@ -22,6 +30,8 @@ public class Player : MonoBehaviour
     private Vector3 mouseWorldPos;
     private SpriteRenderer spriteRenderer;
     private PlayerGun gun;
+
+    private bool hasShotgun = false;
 
     
 
@@ -36,7 +46,7 @@ public class Player : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gun = GetComponentInChildren<PlayerGun>();
-        gun.SwapGun(1);
+        gun.SwapGun(0);
         mainCamera = Camera.main;
         moveInput = InputSystem.actions.FindAction("Move");
         moveInput.Enable();
@@ -71,7 +81,9 @@ public class Player : MonoBehaviour
             gun.TryShoot();
         }
 
-        for (int i = 0; i < 9; i++)
+        int maxGunIndex = hasShotgun ? 2 : 1;
+
+        for (int i = 0; i < maxGunIndex; i++)
         {
             if (Keyboard.current[(Key)(Key.Digit1 + i)].wasPressedThisFrame)
             {
@@ -145,7 +157,8 @@ private void HandleMovement()
                 SetHealth(HealthGain);
                 break;
             case CollectableType.Shotgun:
-                Debug.Log("Shotgun Collected: " + type);
+                hasShotgun = true;
+                OnShotgunCollected?.Invoke();
                 break;
         }
     }
