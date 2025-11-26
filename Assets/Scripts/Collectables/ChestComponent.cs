@@ -7,10 +7,15 @@ public class ChestComponent : MonoBehaviour
     private Sprite disabledChestSprite;
     [SerializeField]
     private Sprite activeChestSprite;
+
+    [SerializeField]
+    private Sprite openChestSprite;
     [SerializeField]
     private RoomController roomController;
 
     private SpriteRenderer spriteRenderer;
+
+    private bool chestOpened = false; 
 
     void Awake()
     {
@@ -24,14 +29,20 @@ public class ChestComponent : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if(!chestOpened)
         {
-            Destroy(gameObject);
+            if (collision.gameObject.CompareTag("Player"))
+                {
+                    chestOpened = true;
+                    spriteRenderer.sprite = openChestSprite;
+                }
         }
+        
     }
 
     public void ActivateChest()
     {
+        
         Debug.Log("Chest Active");
         spriteRenderer.sprite = activeChestSprite;
     }

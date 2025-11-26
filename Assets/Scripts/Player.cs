@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
     private void HandleAiming()
     {
         Vector3 direction = (mouseWorldPos - transform.position).normalized;
-        gun.transform.position = transform.position + direction * gun.gunDistance;
+        gun.transform.position = transform.position + direction * gun.gunData.gunDistance;
         gun.AimAt(mouseWorldPos);
     }
 

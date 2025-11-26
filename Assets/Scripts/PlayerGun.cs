@@ -13,8 +13,6 @@ public class PlayerGun : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private float lastFired = 0;
 
-    public float gunDistance => gunData.gunDistance;
-
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
