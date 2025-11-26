@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HealthbarUIComponent : MonoBehaviour
 {
-    public float health, maxHealth, width, height;
+    public float health, maxHealth;
     [SerializeField]
     private RectTransform healthBar;
 
@@ -14,9 +14,8 @@ public class HealthbarUIComponent : MonoBehaviour
 
     public void SetHealth(float newHealth)
     {
-        health = newHealth;
-        float newWidth = health / maxHealth * width;
-        healthBar.sizeDelta = new Vector2(newWidth, height);
+        health = Mathf.Clamp(newHealth, 0, maxHealth);
+        float healthPercent = health / maxHealth;
+        healthBar.anchorMax = new Vector2(healthPercent, 1f);
     }
-        
 }
