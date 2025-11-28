@@ -9,7 +9,6 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] GunData[] availableGuns;
     [SerializeField] private Bullet bulletPrefab;
     public Transform firePoint;
-
     private SpriteRenderer spriteRenderer;
     private float lastFired = 0;
 

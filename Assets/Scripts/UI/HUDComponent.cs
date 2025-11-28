@@ -13,7 +13,6 @@ public class HUDComponent : MonoBehaviour
         player.OnShotgunCollected.AddListener(() => OnShotgunCollected());
     }
 
-    // Update is called once per frame
     void Update()
     {
         
