@@ -13,6 +13,8 @@ public class Collectable : MonoBehaviour
     public CollectableType variantType;
     [SerializeField] private float bobHeight = 0.5f;
     [SerializeField] private float bobSpeed = 2f;
+
+    [SerializeField] private Player player;
     
     private Vector3 startPosition;
     private bool hasBeenCollected = false;
@@ -20,6 +22,11 @@ public class Collectable : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+        if (OnCollected == null){
+            OnCollected = new UnityEvent<CollectableType>();
+        }
+        Player player = GetComponent<Player>();
+        OnCollected.AddListener(player.OnPickupCollectable);
     }
     
     void Update()
@@ -34,16 +41,13 @@ public class Collectable : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
-            // Player player = other.GetComponent<Player>();
-            // if (player != null)
-            // {
-            //     player.SetHealth(healAmount);
-            //     hasBeenCollected = true;
-            //     Destroy(gameObject);
-            // }
-            hasBeenCollected = true;
-            OnCollected?.Invoke(variantType);
-            Destroy(gameObject);
+            if (player != null)
+            {
+                hasBeenCollected = true;
+                OnCollected?.Invoke(variantType);
+                Destroy(gameObject);
+            }
+            
         }
     }
 }

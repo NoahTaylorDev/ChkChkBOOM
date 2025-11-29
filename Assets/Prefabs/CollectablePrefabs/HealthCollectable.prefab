@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6168187744847698617, guid: 7cd4ba4302f64494cb6964e4c930f8dd, type: 3}
+    - target: {fileID: 6763533834665890287, guid: 61f6e26086247d647962caaee492da19, type: 3}
+      propertyPath: OnCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 291123996348327702, guid: fe85321191f011c4e82471de14346aa7, type: 3}
+    - target: {fileID: 6763533834665890287, guid: 61f6e26086247d647962caaee492da19, type: 3}
+      propertyPath: OnCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPickupCollectable
+      objectReference: {fileID: 0}
     - target: {fileID: 6771769732981416053, guid: 61f6e26086247d647962caaee492da19, type: 3}
       propertyPath: m_Name
       value: HealthCollectable

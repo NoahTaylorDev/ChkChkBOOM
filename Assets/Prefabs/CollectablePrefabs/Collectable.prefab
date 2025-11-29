@@ -50,21 +50,22 @@ MonoBehaviour:
   OnCollected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 291123996348327702, guid: fe85321191f011c4e82471de14346aa7, type: 3}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnPickupCollectable
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  variantType: 0
   bobHeight: 0.5
   bobSpeed: 2
-  healAmount: 2
+  player: {fileID: 291123996348327702, guid: fe85321191f011c4e82471de14346aa7, type: 3}
 --- !u!212 &5388737841825674934
 SpriteRenderer:
   m_ObjectHideFlags: 0

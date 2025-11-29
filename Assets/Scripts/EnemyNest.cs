@@ -9,6 +9,8 @@ public class EnemyNest : MonoBehaviour
     public float nestHealth = 20f;
     public float spawnRate = 10f;
 
+    private RoomController roomController;
+
     public GameObject enemyPrefab;
 
     public Transform spawnPoint;
@@ -16,6 +18,7 @@ public class EnemyNest : MonoBehaviour
     private float lastSpawnTime;
     void Start()
     {
+        roomController = FindFirstObjectByType<RoomController>();
         lastSpawnTime = Time.time;
     }
 
@@ -45,7 +48,7 @@ public class EnemyNest : MonoBehaviour
 
     public void Die()
     {
-        OnDestroyed?.Invoke();
+        roomController.OnSpawnerDestroyed();
         Destroy(gameObject);
     }
 }

@@ -23,8 +23,6 @@ public class RoomController : MonoBehaviour
             Quaternion.identity
         );
         nests.Add(spawnedNest);
-        
-        spawnedNest.OnDestroyed.AddListener(() => OnSpawnerDestroyed());
     }
 
     public void OnSpawnerDestroyed()

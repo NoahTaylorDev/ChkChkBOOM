@@ -11,16 +11,19 @@ public class ModularGunComponent : MonoBehaviour
     [SerializeField] private GameObject grip;
     [SerializeField] private Transform firepoint;
 
+    //scope: range, accuracy, and spread
+    //stock: spread, accuracy and kick
+    //barrel spread, accuracy, range
+    //mag: bullet type, ammo count
+    //grip: spread? Visual?
 
-    
     void Start()
     {
-        
+        //add all of the sprite initalizations for the UpdateGunVisuals.
     }
 
-    
-    void Update()
+        private void UpdateGunVisuals()
     {
-        
+        //update will look something like scopesprite
     }
 }

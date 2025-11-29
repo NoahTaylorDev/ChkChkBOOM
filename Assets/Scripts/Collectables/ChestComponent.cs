@@ -13,28 +13,39 @@ public class ChestComponent : MonoBehaviour
     [SerializeField]
     private RoomController roomController;
 
+    [SerializeField]
+    private Collectable shotgunPrefab;
+
     private SpriteRenderer spriteRenderer;
 
-    private bool chestOpened = false; 
+    private Rigidbody2D rigidBody2D;
+
+    private bool chestOpened = false;
+    private bool chestActive = false; 
 
     void Awake()
     {
+        rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         roomController.OnRoomCleared.AddListener(() => ActivateChest());
+        //replace this with a call to the level manager for when the tigger is entered
 
     }
     void Update()
     {
         
     }
+
     void OnTriggerStay2D(Collider2D collision)
     {
-        if(!chestOpened)
+        if(!chestOpened && chestActive)
         {
             if (collision.gameObject.CompareTag("Player"))
                 {
                     chestOpened = true;
                     spriteRenderer.sprite = openChestSprite;
+                    Collectable shotgun = Instantiate(shotgunPrefab, rigidBody2D.position, Quaternion.identity);
+                    shotgun.variantType = CollectableType.Shotgun;
                 }
         }
         
@@ -42,7 +53,7 @@ public class ChestComponent : MonoBehaviour
 
     public void ActivateChest()
     {
-        
+        chestActive = true;
         Debug.Log("Chest Active");
         spriteRenderer.sprite = activeChestSprite;
     }
