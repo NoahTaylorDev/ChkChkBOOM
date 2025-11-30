@@ -10,7 +10,7 @@ public class HUDComponent : MonoBehaviour
     
     void Start()
     {
-        player.OnShotgunCollected.AddListener(() => OnShotgunCollected());
+        
     }
 
     void Update()
@@ -20,6 +20,7 @@ public class HUDComponent : MonoBehaviour
 
     public void OnShotgunCollected()
     {
+        Debug.Log("heloo" + GunTypeShotgun);
         GunTypeShotgun.color = new Color32(255, 255, 225, 255);
     }
 }

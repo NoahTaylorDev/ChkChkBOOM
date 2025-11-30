@@ -9,12 +9,10 @@ public enum CollectableType
 
 public class Collectable : MonoBehaviour
 {
-    public UnityEvent<CollectableType> OnCollected;
     public CollectableType variantType;
     [SerializeField] private float bobHeight = 0.5f;
     [SerializeField] private float bobSpeed = 2f;
-
-    [SerializeField] private Player player;
+    private Player player;
     
     private Vector3 startPosition;
     private bool hasBeenCollected = false;
@@ -22,11 +20,7 @@ public class Collectable : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-        if (OnCollected == null){
-            OnCollected = new UnityEvent<CollectableType>();
-        }
         Player player = GetComponent<Player>();
-        OnCollected.AddListener(player.OnPickupCollectable);
     }
     
     void Update()
@@ -44,7 +38,7 @@ public class Collectable : MonoBehaviour
             if (player != null)
             {
                 hasBeenCollected = true;
-                OnCollected?.Invoke(variantType);
+                FindAnyObjectByType<Player>().OnPickupCollectable(variantType);
                 Destroy(gameObject);
             }
             

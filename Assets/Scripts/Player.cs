@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public UnityEvent OnShotgunCollected;
     [SerializeField] 
     private float speed = 5f;
 
@@ -31,18 +30,18 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerGun gun;
 
-    private bool hasShotgun = false;
+    [SerializeField] private bool hasShotgun;
 
     
 
     public float maxLife = 10f;
     public float life = 10f;
     private bool facingRight = false;
-
-    private PlayerUIController playerUI;
+    
 
     void Start()
     {
+        hasShotgun = false;
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gun = GetComponentInChildren<PlayerGun>();
@@ -51,8 +50,6 @@ public class Player : MonoBehaviour
         moveInput = InputSystem.actions.FindAction("Move");
         moveInput.Enable();
         healthbarUI.SetMaxHealth(maxLife);
-        playerUI = FindFirstObjectByType<PlayerUIController>();
-        collectable.OnCollected.AddListener((CollectableType) => OnPickupCollectable(CollectableType));
     }
 
 
@@ -157,8 +154,8 @@ private void HandleMovement()
                 SetHealth(HealthGain);
                 break;
             case CollectableType.Shotgun:
-                hasShotgun = true;
-                OnShotgunCollected?.Invoke();
+                this.hasShotgun = true;
+                FindFirstObjectByType<HUDComponent>().OnShotgunCollected();
                 break;
         }
     }

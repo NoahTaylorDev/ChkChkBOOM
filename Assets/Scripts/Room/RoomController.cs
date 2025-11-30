@@ -4,10 +4,11 @@ using UnityEngine.Events;
 
 public class RoomController : MonoBehaviour
 {
-    public UnityEvent OnRoomCleared;
     [SerializeField] private Enemy[] enemies;
     private List<EnemyNest> nests = new List<EnemyNest>();
     [SerializeField] private EnemyNest nest;
+
+    private ChestComponent chest;
 
     [SerializeField] private GameObject[] spawnPoints;
 
@@ -16,6 +17,7 @@ public class RoomController : MonoBehaviour
 
     void Start()
     {
+        chest = FindFirstObjectByType<ChestComponent>();
         int randomIndex = Random.Range(0, spawnPoints.Length);
         EnemyNest spawnedNest = Instantiate(
             nest, 
@@ -25,12 +27,13 @@ public class RoomController : MonoBehaviour
         nests.Add(spawnedNest);
     }
 
-    public void OnSpawnerDestroyed()
+    public void OnSpawnerDestroyed(EnemyNest nest)
     {
+        nests.Remove(nest);
         if(nests.Count == 0)
         {
             Debug.Log("Room Cleared");
-            OnRoomCleared?.Invoke();
+            chest.ActivateChest();
         }
     }
 }

@@ -27,8 +27,6 @@ public class ChestComponent : MonoBehaviour
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        roomController.OnRoomCleared.AddListener(() => ActivateChest());
-        //replace this with a call to the level manager for when the tigger is entered
 
     }
     void Update()

@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerUIController : MonoBehaviour
 {
     [SerializeField] private GameObject uiPanel;
-    [SerializeField] private GameObject HUD;
+    [SerializeField] public HUDComponent HUD;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button returnButton;
     [SerializeField] private Button exitButton;
