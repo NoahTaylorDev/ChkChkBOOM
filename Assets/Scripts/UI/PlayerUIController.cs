@@ -40,7 +40,7 @@ public class PlayerUIController : MonoBehaviour
         SaveSystem.SaveGame();
     }
 
-    private void RestartScene()
+    public void RestartScene()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

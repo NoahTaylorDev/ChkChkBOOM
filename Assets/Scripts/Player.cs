@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     public float maxLife = 10f;
     public float life = 10f;
     private bool facingRight = false;
+
+    //Implement, Press E to interact.
     
 
     void Start()

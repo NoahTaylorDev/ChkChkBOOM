@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class RoomController : MonoBehaviour
 {
@@ -32,7 +33,6 @@ public class RoomController : MonoBehaviour
         nests.Remove(nest);
         if(nests.Count == 0)
         {
-            Debug.Log("Room Cleared");
             chest.ActivateChest();
         }
     }

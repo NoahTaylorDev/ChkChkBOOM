@@ -20,7 +20,6 @@ public class HUDComponent : MonoBehaviour
 
     public void OnShotgunCollected()
     {
-        Debug.Log("heloo" + GunTypeShotgun);
         GunTypeShotgun.color = new Color32(255, 255, 225, 255);
     }
 }

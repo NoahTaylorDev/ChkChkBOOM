@@ -20,6 +20,8 @@ public class ChestComponent : MonoBehaviour
 
     private Rigidbody2D rigidBody2D;
 
+    private ExitComponent exit;
+
     private bool chestOpened = false;
     private bool chestActive = false; 
 
@@ -27,6 +29,7 @@ public class ChestComponent : MonoBehaviour
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        exit = FindFirstObjectByType<ExitComponent>();
 
     }
     void Update()
@@ -41,6 +44,7 @@ public class ChestComponent : MonoBehaviour
             if (collision.gameObject.CompareTag("Player"))
                 {
                     chestOpened = true;
+                    exit.Activate();
                     spriteRenderer.sprite = openChestSprite;
                     Collectable shotgun = Instantiate(shotgunPrefab, rigidBody2D.position, Quaternion.identity);
                     shotgun.variantType = CollectableType.Shotgun;
@@ -52,7 +56,8 @@ public class ChestComponent : MonoBehaviour
     public void ActivateChest()
     {
         chestActive = true;
-        Debug.Log("Chest Active");
         spriteRenderer.sprite = activeChestSprite;
+
+        
     }
 }
