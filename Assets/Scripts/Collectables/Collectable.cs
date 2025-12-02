@@ -20,7 +20,7 @@ public class Collectable : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-        Player player = GetComponent<Player>();
+        player = FindFirstObjectByType<Player>();
     }
     
     void Update()
