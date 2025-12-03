@@ -34,11 +34,11 @@ public class PlayerGun : MonoBehaviour
     {
         if (Time.time >= lastFired + 1f / gunData.fireRate)
         {
+            ammoRemaining -= 1;
+            HUD.UpdateAmmoCount();
             for (int i = 0; i < gunData.bulletsPerShot; i++)
             {
                 FireSingleBullet();
-                ammoRemaining -= 1;
-                HUD.UpdateAmmoCount();
             }
             lastFired = Time.time;
         }
