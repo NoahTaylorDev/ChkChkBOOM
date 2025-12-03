@@ -16,7 +16,10 @@ MonoBehaviour:
   bulletSpeed: 20
   damage: 2
   bulletsPerShot: 1
+  bulletCount: 200
+  reloadSpeed: 1
   shotDistance: 50
   bulletSpread: 10
   gunSprite: {fileID: -3394858068493699041, guid: 1626cd4e751a0cc43a452c1f5a54682e, type: 3}
+  AmmoType: {fileID: 8547942445193062373, guid: 723b302c3a7b90442a8c78b7f801beb4, type: 3}
   gunDistance: 1

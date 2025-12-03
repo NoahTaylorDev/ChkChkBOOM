@@ -14,6 +14,7 @@ public class PlayerUIController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI boomBucksCounter;
 
+
     [SerializeField] public GlobalData globalData;
 
     void Start()

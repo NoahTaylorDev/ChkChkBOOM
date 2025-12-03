@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[RequireComponent(typeof(ObjectData))]
 public class DestructableObjectComponent : MonoBehaviour
 {
     

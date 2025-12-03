@@ -8,6 +8,8 @@ public class GunData : ScriptableObject
     public float bulletSpeed = 20f;
     public int damage = 10;
     public int bulletsPerShot = 1;
+    public int bulletCount = 1;
+    public float reloadSpeed = 0.1f;
     
     [Header("Ballistics")]
     [Tooltip("Maximum distance bullets travel before being destroyed")]
@@ -17,6 +19,7 @@ public class GunData : ScriptableObject
     
     [Header("Visuals")]
     public Sprite gunSprite;
+    public Sprite AmmoType;
     public float gunDistance = 1f;
     
     /// <summary>
