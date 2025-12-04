@@ -5,14 +5,15 @@
         <ui:VisualElement name="ButtonProgressContainer" class="progressContainer" style="margin-bottom: 0; width: 80%; max-height: 10%;">
             <ui:Button text="Health" name="HealthButton" class="shopButton shopBuyButton" style="width: 20%; height: 80px; border-left-color: rgb(255, 0, 136); border-right-color: rgb(255, 0, 136); border-top-color: rgb(255, 0, 136); border-bottom-color: rgb(255, 0, 136);" />
             <ui:VisualElement name="ProgressBar" class="progressBar" style="flex-grow: 1; height: 80px; justify-content: flex-start;">
-                <ui:Label name="ProgressNode" class="progressLabel progressNode" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: 100%;" />
+                <ui:Label name="ProgressNode" class="progressLabel progressNode" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: 100%; width: 0%;" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="ButtonProgressContainer" class="progressContainer" style="margin-bottom: 0; width: 80%; max-height: 10%;">
             <ui:Button text="Damage" name="DamageButton" class="shopButton shopBuyButton" style="width: 20%; height: 80px; border-left-color: rgb(167, 0, 0); border-right-color: rgb(167, 0, 0); border-top-color: rgb(167, 0, 0); border-bottom-color: rgb(167, 0, 0);" />
             <ui:VisualElement name="ProgressBar" class="progressBar" style="flex-grow: 1; height: 80px; justify-content: flex-start;">
-                <ui:Label name="ProgressNode" class="progressLabel progressNode" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: 100%;" />
+                <ui:Label name="ProgressNode" class="progressLabel progressNode" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: 100%; width: 0%;" />
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:Button text="Close Shop" name="CloseShopButton" class="button menuButton" style="-unity-text-align: middle-center; white-space: nowrap; flex-direction: column; background-color: rgb(140, 0, 0); color: rgb(255, 255, 255);" />
     </ui:VisualElement>
 </ui:UXML>

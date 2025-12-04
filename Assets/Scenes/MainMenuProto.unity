@@ -187,6 +187,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55f87ba16d5d3747b2d9bbc64fe9854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  globalData: {fileID: 11400000, guid: 0bf213f70f0d60c43a8e660764a71c04, type: 2}
+  healthUpgradeCost: 0
+  healthUpgradeAmount: 10
+  healthProgressIncrement: 0.1
+  damageUpgradeCost: 0
+  damageUpgradeAmount: 5
+  damageProgressIncrement: 0.1
 --- !u!1 &713570879
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538c5c70f83e4824ba7ffda6d70fee1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuComponent
-  shopDocument: {fileID: 266662568}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

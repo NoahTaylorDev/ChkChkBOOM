@@ -8,7 +8,7 @@ public class MainMenuComponent : MonoBehaviour
 {
     private UIDocument uiDocument;
 
-    [SerializeField] private GameObject shopDocument;
+    private ShopUIController shopController;
     private Button startButton;
     private Button exitButton;
     private Button shopButton;
@@ -16,6 +16,7 @@ public class MainMenuComponent : MonoBehaviour
     void Awake()
     {
         uiDocument = GetComponent<UIDocument>();
+        shopController = FindFirstObjectByType<ShopUIController>();
         startButton = uiDocument.rootVisualElement.Q("StartButton") as Button;
         exitButton = uiDocument.rootVisualElement.Q("ExitButton") as Button;
         shopButton = uiDocument.rootVisualElement.Q("ShopButton") as Button;
@@ -23,8 +24,6 @@ public class MainMenuComponent : MonoBehaviour
         startButton.RegisterCallback<ClickEvent>(OnPlayGameClick);
         exitButton.RegisterCallback<ClickEvent>(OnExitClick);
         shopButton.RegisterCallback<ClickEvent>(OnShopClick);
-
-        shopDocument.SetActive(false);
     }
 
     private void OnPlayGameClick(ClickEvent evt)
@@ -42,7 +41,7 @@ public class MainMenuComponent : MonoBehaviour
 
     private void OnShopClick(ClickEvent evt)
     {
-        shopDocument.SetActive(true);
+        shopController.ShowShop();
     }
 
     void OnDisable()

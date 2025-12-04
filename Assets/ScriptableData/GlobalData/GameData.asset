@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074c936d210102b42b7e26293317b46e, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: Assembly-CSharp::GlobalData
-  boombucks: 410
-  playerHealth: 80
+  boombucks: 200000
+  playerHealth: 50
   playerHealthIncrement: 10
-  playerDamage: 7
+  playerDamage: 4
   playerDamageIncrement: 1
-  healthCost: 172
-  damageCost: 172
+  healthCost: 100
+  damageCost: 100
