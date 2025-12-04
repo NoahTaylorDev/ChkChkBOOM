@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=dfceff40680da3e4bbd4c98ecfea6000&amp;type=3#MainMenuStyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1;">
+        <ui:Label text="Chk Chk BOOM" name="MainMenuHeader" class="header" style="-unity-text-align: upper-center; position: relative; justify-content: flex-start; align-self: center; white-space: pre; top: auto; font-size: 140px;" />
+        <ui:Button text="Start" name="StartButton" class="button menuButton" style="border-left-color: rgb(34, 139, 34); border-right-color: rgb(34, 139, 34); border-top-color: rgb(34, 139, 34); border-bottom-color: rgb(34, 139, 34);" />
+        <ui:Button text="Exit" name="ExitButton" class="button menuButton" style="border-left-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-top-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0);" />
+        <ui:Button text="Shop" name="ShopButton" class="button menuButton" style="border-left-color: rgb(0, 185, 255); border-right-color: rgb(0, 185, 255); border-top-color: rgb(0, 185, 255); border-bottom-color: rgb(0, 185, 255); color: rgb(0, 0, 0);" />
+    </ui:VisualElement>
+</ui:UXML>
