@@ -1,9 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=dfceff40680da3e4bbd4c98ecfea6000&amp;type=3#MenuStyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1;">
+        <ui:VisualElement name="CurrencyContainer" style="max-height: 50px; width: 30%; flex-shrink: 0; height: 51px; flex-direction: row;">
+            <ui:VisualElement name="Image" style="background-image: url(&quot;project://database/Assets/Sprites/BB.png?fileID=2800000&amp;guid=0c960c6787f9c704285a3948de69f79d&amp;type=3#BB&quot;); align-items: auto; align-self: center; height: 50px; width: 80px;" />
+            <ui:Label text=": 99999999" name="CurrecyCounter" style="align-self: center; font-size: 30px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="CurrencyContainer" style="max-height: 50px; width: 30%; flex-shrink: 0; height: 51px; flex-direction: row;">
+            <ui:VisualElement name="Image" style="background-image: url(&quot;project://database/Assets/Sprites/LMGAmmo.png?fileID=2800000&amp;guid=723b302c3a7b90442a8c78b7f801beb4&amp;type=3#LMGAmmo&quot;); align-items: auto; align-self: center; height: 50px; width: 80px;" />
+            <ui:Label text=": 99999999" name="CurrecyCounter" style="align-self: center; font-size: 30px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="FooterContainer" style="flex-grow: 1; flex-direction: column-reverse;">
+        <ui:VisualElement name="ProgressBar" class="progressBar" style="height: 10%; width: 30%; margin-left: 10px; margin-top: 20px; margin-bottom: 20px; margin-right: 10px;">
+            <ui:Label name="ProgressNode" class="progressLabel progressNode" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: 100%; width: 100%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="WeaponSelector" style="flex-grow: 0; width: 30%; flex-direction: row;">
+            <ui:VisualElement name="Weapon1" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Sprites/BigBFG.png?fileID=2800000&amp;guid=1626cd4e751a0cc43a452c1f5a54682e&amp;type=3#BigBFG&quot;); width: 80px; height: 80px; margin-left: 20px; margin-right: 20px;">
+                <ui:Label text="1" name="WeaponSelectKeyLabel" style="align-self: center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Weapon2" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Sprites/PlasmaShotgun.png?fileID=2800000&amp;guid=b1dac556fcae45542a2ecad644745b11&amp;type=3#PlasmaShotgun&quot;); width: 80px; height: 80px; margin-left: 20px; margin-right: 20px;">
+                <ui:Label text="2" name="WeaponSelectKeyLabel" style="align-self: center;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>
