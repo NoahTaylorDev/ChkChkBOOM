@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ExitComponent : MonoBehaviour
 {
@@ -7,12 +8,10 @@ public class ExitComponent : MonoBehaviour
     private bool isActive = false;
     
     private bool isPlayerPresent = false;
-
-    private PlayerUIController playerUIController;
     
     void Start()
     {
-        playerUIController = FindFirstObjectByType<PlayerUIController>();           
+                  
     }
 
     
@@ -22,7 +21,7 @@ public class ExitComponent : MonoBehaviour
         {
             if (Keyboard.current[Key.E].wasPressedThisFrame)
             {
-                playerUIController.RestartScene();
+                SceneManager.LoadScene("Main");
             }
         }
         

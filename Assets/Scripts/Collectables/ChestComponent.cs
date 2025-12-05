@@ -22,7 +22,7 @@ public class ChestComponent : MonoBehaviour
 
     private ExitComponent exit;
 
-    private PlayerUIController playerUI;
+    private PlayerHUD playerUI;
 
     private bool chestOpened = false;
     private bool chestActive = false; 
@@ -32,7 +32,7 @@ public class ChestComponent : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         exit = FindFirstObjectByType<ExitComponent>();
-        playerUI = FindAnyObjectByType<PlayerUIController>();
+        playerUI = FindAnyObjectByType<PlayerHUD>();
     }
     void Update()
     {
@@ -53,6 +53,7 @@ public class ChestComponent : MonoBehaviour
                     Collectable shotgun = Instantiate(shotgunPrefab, newPosition, Quaternion.identity);
                     shotgun.variantType = CollectableType.Shotgun;
                     playerUI.globalData.AddBoombucks(100);
+                    playerUI.UpdateBoombucksDisplay();
                 }
         }
         
