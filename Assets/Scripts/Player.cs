@@ -138,7 +138,7 @@ private void HandleMovement()
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
         
-        FindFirstObjectByType<PlayerUIController>().OnPlayerDeath();
+        FindFirstObjectByType<PlayerMenuComponent>().ShowPlayerMenu();
     }
 
     public void SetHealth(float healthChange)

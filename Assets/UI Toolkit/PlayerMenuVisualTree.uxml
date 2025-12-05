@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=dfceff40680da3e4bbd4c98ecfea6000&amp;type=3#MenuStyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1;">
+        <ui:Label text="You Died" name="Header" class="header" />
+        <ui:VisualElement name="MenuContainer" style="flex-grow: 1;">
+            <ui:Button text="Try Again?" name="RestartButton" class="button menuButton" style="border-left-color: rgb(255, 166, 0); border-right-color: rgb(255, 166, 0); border-top-color: rgb(255, 166, 0); border-bottom-color: rgb(255, 166, 0);" />
+            <ui:Button text="Main Menu" name="MainMenuButton" class="button menuButton" style="border-left-color: rgb(0, 4, 255); border-right-color: rgb(0, 4, 255); border-top-color: rgb(0, 4, 255); border-bottom-color: rgb(0, 4, 255);" />
+            <ui:Button text="Exit" name="ExitButton" class="button menuButton" style="border-left-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-top-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
