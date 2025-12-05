@@ -11,14 +11,14 @@ public class PlayerGun : MonoBehaviour
     public Transform firePoint;
     private SpriteRenderer spriteRenderer;
     private float lastFired = 0;
-    private HUDComponent HUD;
+    private PlayerHUD HUD;
 
     public int ammoRemaining;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        HUD = FindFirstObjectByType<HUDComponent>();
+        HUD = FindFirstObjectByType<PlayerHUD>();
         UpdateGunVisuals();
         ammoRemaining = gunData.bulletCount;
     }
@@ -35,7 +35,7 @@ public class PlayerGun : MonoBehaviour
         if (Time.time >= lastFired + 1f / gunData.fireRate)
         {
             ammoRemaining -= 1;
-            HUD.UpdateAmmoCount();
+            HUD.UpdateAmmoDisplay();
             for (int i = 0; i < gunData.bulletsPerShot; i++)
             {
                 FireSingleBullet();
@@ -76,9 +76,9 @@ public class PlayerGun : MonoBehaviour
         {
             gunIndex = index;
             UpdateGunVisuals();
-            HUD.UpdateAmmoTypeImage();
+            HUD.UpdateAmmoDisplay();
             ammoRemaining = gunData.bulletCount;
-            HUD.UpdateAmmoCount();
+            
             
         }
     }

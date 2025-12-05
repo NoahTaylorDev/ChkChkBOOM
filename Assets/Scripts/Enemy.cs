@@ -18,12 +18,12 @@ public class Enemy : MonoBehaviour
 
     private Player player;
 
-    private PlayerUIController playerUI;
+    private PlayerHUD playerUI;
 
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
-        playerUI = FindFirstObjectByType<PlayerUIController>();
+        playerUI = FindFirstObjectByType<PlayerHUD>();
         nextAttackTime = Time.time;
         player = FindFirstObjectByType<Player>();
         if (player != null)
@@ -94,6 +94,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         playerUI.globalData.AddBoombucks(10);
+        playerUI.UpdateBoombucksDisplay();
         Destroy(gameObject);
     }
 }

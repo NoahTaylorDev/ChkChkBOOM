@@ -8,8 +8,8 @@ public class PlayerMenuComponent : MonoBehaviour
     private Button restartButton;
     private Button mainMenuButton;
     private Button exitButton;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    void Awake()
     {
         uiDocument = GetComponent<UIDocument>();
         restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
@@ -19,21 +19,19 @@ public class PlayerMenuComponent : MonoBehaviour
         restartButton.RegisterCallback<ClickEvent>(OnRestartClick);
         mainMenuButton.RegisterCallback<ClickEvent>(OnMainMenuClick);
         exitButton.RegisterCallback<ClickEvent>(OnExitClick);
-
-        
         
         HidePlayerMenu();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        SaveSystem.LoadGame();
     }
 
     public void ShowPlayerMenu()
     {
         uiDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        Time.timeScale = 0f;
     }
 
     private void HidePlayerMenu()
@@ -41,18 +39,27 @@ public class PlayerMenuComponent : MonoBehaviour
         uiDocument.rootVisualElement.style.display = DisplayStyle.None;
     }
 
+    public void OnPlayerDeath()
+    {
+        ShowPlayerMenu();
+        SaveSystem.SaveGame();
+    }
+
     private void OnRestartClick(ClickEvent clickEvent)
     {
-        SceneManager.LoadScene("Main");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnMainMenuClick(ClickEvent clickEvent)
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");        
     }
 
     private void OnExitClick(ClickEvent clickEvent)
     {
+        Time.timeScale = 1f;
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #endif
@@ -61,8 +68,8 @@ public class PlayerMenuComponent : MonoBehaviour
 
     private void OnDisable()
     {
-        restartButton.UnregisterCallback<ClickEvent>(OnRestartClick);
-        mainMenuButton.UnregisterCallback<ClickEvent>(OnMainMenuClick);
-        exitButton.UnregisterCallback<ClickEvent>(OnExitClick);
+        restartButton?.UnregisterCallback<ClickEvent>(OnRestartClick);
+        mainMenuButton?.UnregisterCallback<ClickEvent>(OnMainMenuClick);
+        exitButton?.UnregisterCallback<ClickEvent>(OnExitClick);
     }
 }

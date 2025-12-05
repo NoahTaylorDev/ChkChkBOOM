@@ -1,13 +1,13 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=dfceff40680da3e4bbd4c98ecfea6000&amp;type=3#MenuStyle" />
     <ui:VisualElement name="Container" style="flex-grow: 1;">
-        <ui:VisualElement name="CurrencyContainer" style="max-height: 50px; width: 30%; flex-shrink: 0; height: 51px; flex-direction: row;">
+        <ui:VisualElement name="HUDContainer" class="HUDContainer" style="max-height: 50px; width: 30%; flex-shrink: 0; height: 51px; flex-direction: row;">
             <ui:VisualElement name="Image" style="background-image: url(&quot;project://database/Assets/Sprites/BB.png?fileID=2800000&amp;guid=0c960c6787f9c704285a3948de69f79d&amp;type=3#BB&quot;); align-items: auto; align-self: center; height: 50px; width: 80px;" />
-            <ui:Label text=": 99999999" name="CurrecyCounter" style="align-self: center; font-size: 30px;" />
+            <ui:Label text=": 99999999" name="CurrencyCounter" class="HUDContainerText" style="align-self: center; font-size: 30px;" />
         </ui:VisualElement>
-        <ui:VisualElement name="CurrencyContainer" style="max-height: 50px; width: 30%; flex-shrink: 0; height: 51px; flex-direction: row;">
+        <ui:VisualElement name="HUDContainer" class="HUDContainer" style="max-height: 50px; width: 30%; flex-shrink: 0; height: 51px; flex-direction: row;">
             <ui:VisualElement name="Image" style="background-image: url(&quot;project://database/Assets/Sprites/LMGAmmo.png?fileID=2800000&amp;guid=723b302c3a7b90442a8c78b7f801beb4&amp;type=3#LMGAmmo&quot;); align-items: auto; align-self: center; height: 50px; width: 80px;" />
-            <ui:Label text=": 99999999" name="CurrecyCounter" style="align-self: center; font-size: 30px;" />
+            <ui:Label text=": 99999999" name="AmmoCounter" class="HUDContainerText" style="align-self: center; font-size: 30px;" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="FooterContainer" style="flex-grow: 1; flex-direction: column-reverse;">

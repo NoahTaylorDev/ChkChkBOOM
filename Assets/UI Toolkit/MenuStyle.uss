@@ -114,3 +114,12 @@
     font-size: 30px;
     -unity-text-align: middle-center;
 }
+
+.HUDContainer {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.HUDContainerText {
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+}
