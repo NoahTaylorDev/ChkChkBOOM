@@ -15,7 +15,7 @@ public class PlayerGun : MonoBehaviour
 
     public int ammoRemaining;
 
-    void Start()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         HUD = FindFirstObjectByType<PlayerHUD>();
@@ -76,6 +76,9 @@ public class PlayerGun : MonoBehaviour
         {
             gunIndex = index;
             UpdateGunVisuals();
+
+            
+        Debug.Log("HUD is null: " + HUD == null);
             HUD.UpdateAmmoDisplay();
             ammoRemaining = gunData.bulletCount;
             
