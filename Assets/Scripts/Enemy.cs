@@ -67,12 +67,11 @@ public class Enemy : MonoBehaviour
         rigidBody2D.linearVelocity = direction * fleeSpeed;
     }
 
-
-    public void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (nextAttackTime < Time.time)
         {
-            if (other.TryGetComponent<Player>(out Player player))
+            if (collision.gameObject.TryGetComponent<Player>(out Player player))
             {
                 player.TakeDamage(enemyDamage);
                 nextAttackTime = Time.time + enemyAttackCooldown;
