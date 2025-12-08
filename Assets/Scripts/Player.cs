@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     public float maxLife = 10f;
     public float life = 10f;
-    private bool facingRight = false;
+    private bool facingRight = true;
 
     void Start()
     {

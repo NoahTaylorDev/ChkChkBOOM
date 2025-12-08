@@ -62,7 +62,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 127eee4f0e2cb474ebe52d62675ff963, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: -1988809263
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4086367256927587079, guid: 54cae2eb4aac0c540be6e875a8b36b38, type: 3}
+  m_Sprite: {fileID: 4973834901702316737, guid: a671beb55e6b7024ab2bedb7ef8bbff3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -134,26 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6103af591e1e27449bd31d8d9ba0a171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  OnShotgunCollected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HUDComponent, Assembly-CSharp
-        m_MethodName: OnShotgunCollected
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   speed: 5
-  healthbarUI: {fileID: 0}
   collectable: {fileID: 6763533834665890287, guid: 61f6e26086247d647962caaee492da19, type: 3}
   HealthGain: 2
   GunTypeSprite: {fileID: 0}
+  hasShotgun: 0
   maxLife: 10
   life: 10
 --- !u!60 &1374026355939896051
@@ -390,6 +375,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58a8eb135e26ba448bf978039f3c24cd, type: 2}
   bulletPrefab: {fileID: -405401930296917578, guid: 1276c7c216632684fbd06aef6567761c, type: 3}
   firePoint: {fileID: 8677800404747977252}
+  ammoRemaining: 0
 --- !u!1 &4047318219718829750
 GameObject:
   m_ObjectHideFlags: 0
