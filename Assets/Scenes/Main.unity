@@ -195,7 +195,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4.6
+  m_Intensity: 5.28
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 000000001f694297e549b5aac102b97253aae4edd12d758935e23ecb47b80efb
@@ -4550,6 +4550,55 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.48984, y: -7.16, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &595848924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595848926}
+  - component: {fileID: 595848925}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &595848925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595848924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 1be60cf232592924d847e9187fc8f226, type: 2}
+--- !u!4 &595848926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595848924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.13917233, y: 0.03253845, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -28470,6 +28519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1131487545569216666, guid: fe85321191f011c4e82471de14346aa7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1374026355939896051, guid: fe85321191f011c4e82471de14346aa7, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -28522,6 +28575,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3842893811659814375, guid: fe85321191f011c4e82471de14346aa7, type: 3}
+      propertyPath: m_Antialiasing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842893811659814375, guid: fe85321191f011c4e82471de14346aa7, type: 3}
+      propertyPath: m_RendererIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842893811659814375, guid: fe85321191f011c4e82471de14346aa7, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4464668718122926814, guid: fe85321191f011c4e82471de14346aa7, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -28533,7 +28598,7 @@ PrefabInstance:
     - target: {fileID: 4464668718122926814, guid: fe85321191f011c4e82471de14346aa7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 127eee4f0e2cb474ebe52d62675ff963, type: 2}
+      objectReference: {fileID: -876546973899608171, guid: c367ca552113f474e88ad0ca27deef20, type: 3}
     - target: {fileID: 4751036499442825337, guid: fe85321191f011c4e82471de14346aa7, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -28546,6 +28611,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -3394858068493699041, guid: 1626cd4e751a0cc43a452c1f5a54682e, type: 3}
+    - target: {fileID: 4751036499442825337, guid: fe85321191f011c4e82471de14346aa7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 8677800404747977252, guid: fe85321191f011c4e82471de14346aa7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.558
@@ -28576,3 +28645,4 @@ SceneRoots:
   - {fileID: 1141513901}
   - {fileID: 1491242316}
   - {fileID: 1597000120}
+  - {fileID: 595848926}
