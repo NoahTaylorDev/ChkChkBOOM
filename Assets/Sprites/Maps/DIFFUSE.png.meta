@@ -148,9 +148,11 @@ TextureImporter:
     - texture: {fileID: 2800000, guid: a070a4ac55b6c544e9358be110e2c83e, type: 3}
       name: _NormalMap
     - texture: {fileID: 2800000, guid: ef757c0ee904bd04587c657b35815f61, type: 3}
-      name: _MaskTex
+      name: _SpecularMap
     - texture: {fileID: 2800000, guid: 726d0db98273f9443ae360bb690a6d48, type: 3}
-      name: _Emission
+      name: _EmissionMap
+    - texture: {fileID: 2800000, guid: 28ecbc9f64ebc854399961f578532841, type: 3}
+      name: _GlossMap
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
